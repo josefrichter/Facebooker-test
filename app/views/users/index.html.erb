@@ -1,0 +1,13 @@
+<%= debug @fbsession.user %>
+<img src="<%= @fbsession.user.pic_small %>" />
+<h1><%= @fbsession.user.name %></h1>
+<table>
+	<% @fbsession.user.friends.each do |friend| %>
+		<tr><td><img src="<%#= friend.pic_small %>" /></td><td><%= friend.uid %></td></tr>
+	<% end %>
+</table>
+<h3>Post a status update</h3>
+<form action="/status_update" method="post" accept-charset="utf-8">
+	<textarea name="message" rows="8" cols="40"></textarea>
+	<p><input type="submit" value="Continue &rarr;"></p>
+</form>
